@@ -1,0 +1,132 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  border-radius: 9999px;
+  font-weight: 500;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+
+.badgeSm {
+  font-size: 0.75rem;
+  padding-left: 8px;
+  padding-right: 8px;
+  padding-top: 1px;
+  padding-bottom: 1px;
+}
+
+.badgeMd {
+  font-size: 0.875rem;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+
+/* Light variants */
+.badgeLightPrimary {
+  background: #e0f2fe;
+  color: #0284c7;
+}
+.badgeLightSuccess {
+  background: #f6fef9;
+  color: #12b76a;
+}
+.badgeLightError {
+  background: #fef6f6;
+  color: #f04438;
+}
+.badgeLightWarning {
+  background: #fefce8;
+  color: #facc15;
+}
+.badgeLightInfo {
+  background: #eff6ff;
+  color: #3b82f6;
+}
+.badgeLightLight {
+  background: #f3f4f6;
+  color: #374151;
+}
+.badgeLightDark {
+  background: #6b7280;
+  color: #fff;
+}
+
+/* Solid variants */
+.badgeSolidPrimary {
+  background: #0284c7;
+  color: #fff;
+}
+.badgeSolidSuccess {
+  background: #12b76a;
+  color: #fff;
+}
+.badgeSolidError {
+  background: #f04438;
+  color: #fff;
+}
+.badgeSolidWarning {
+  background: #facc15;
+  color: #fff;
+}
+.badgeSolidInfo {
+  background: #3b82f6;
+  color: #fff;
+}
+.badgeSolidLight {
+  background: #d1d5db;
+  color: #fff;
+}
+.badgeSolidDark {
+  background: #374151;
+  color: #fff;
+}
+
+/* Icon spacing */
+.badgeStartIcon {
+  margin-right: 4px;
+  display: flex;
+  align-items: center;
+}
+.badgeEndIcon {
+  margin-left: 4px;
+  display: flex;
+  align-items: center;
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+  .badgeLightPrimary {
+    background: rgba(2,132,199,0.15);
+    color: #38bdf8;
+  }
+  .badgeLightSuccess {
+    background: rgba(18,183,106,0.15);
+    color: #12b76a;
+  }
+  .badgeLightError {
+    background: rgba(240,68,56,0.15);
+    color: #f04438;
+  }
+  .badgeLightWarning {
+    background: rgba(250,204,21,0.15);
+    color: #ea580c;
+  }
+  .badgeLightInfo {
+    background: rgba(59,130,246,0.15);
+    color: #3b82f6;
+  }
+  .badgeLightLight {
+    background: rgba(255,255,255,0.05);
+    color: #f3f4f6;
+  }
+  .badgeLightDark {
+    background: rgba(255,255,255,0.05);
+    color: #fff;
+  }
+}

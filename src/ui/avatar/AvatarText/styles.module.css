@@ -1,0 +1,52 @@
+.avatarText {
+  display: flex;
+  width: 40px;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  font-size: 1rem;
+  font-weight: 500;
+  user-select: none;
+  overflow: hidden;
+}
+
+/* Cores pastel para fundo/texto */
+.brand {
+  background: #e0f2fe;
+  color: #0284c7;
+}
+.pink {
+  background: #fce7f3;
+  color: #db2777;
+}
+.cyan {
+  background: #cffafe;
+  color: #06b6d4;
+}
+.orange {
+  background: #ffedd5;
+  color: #ea580c;
+}
+.green {
+  background: #dcfce7;
+  color: #16a34a;
+}
+.purple {
+  background: #ede9fe;
+  color: #7c3aed;
+}
+.yellow {
+  background: #fef9c3;
+  color: #eab308;
+}
+.error {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+.avatarTextInitials {
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}

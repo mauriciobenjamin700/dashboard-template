@@ -1,0 +1,20 @@
+.responsiveImageWrapper {
+  position: relative;
+}
+
+.responsiveImageOverflow {
+  overflow: hidden;
+}
+
+.responsiveImage {
+  width: 100%;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  display: block;
+}
+
+@media (prefers-color-scheme: dark) {
+  .responsiveImage {
+    border-color: #1f2937;
+  }
+}
