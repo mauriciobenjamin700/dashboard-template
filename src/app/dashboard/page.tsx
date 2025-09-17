@@ -1,9 +1,9 @@
 import styles from "./styles.module.css"
 import { mockDashboard } from "@/lib/mockData"
 
-  const data = mockDashboard
-
 export default function DashboardPage() {
+
+  const data = mockDashboard
 
   return (
     <div className={styles.dashboardContainer}>
@@ -34,6 +34,15 @@ export default function DashboardPage() {
         </div>
         <div className={styles.card}>
           <div className={styles.cardHeader}>
+            <span className={styles.cardTitle}>Usuários Inativos</span>
+          </div>
+          <div className={styles.cardContent}>
+            <div className={styles.cardValue}>{data.inactiveUsers.toLocaleString()}</div>
+            <p className={styles.cardDescription}>{((data.inactiveUsers / data.totalUsers) * 100).toFixed(1)}% do total</p>
+          </div>
+        </div>
+        <div className={styles.card}>
+          <div className={styles.cardHeader}>
             <span className={styles.cardTitle}>Novos Cadastros</span>
           </div>
           <div className={styles.cardContent}>
@@ -49,6 +58,69 @@ export default function DashboardPage() {
             <div className={styles.cardValue}>{data.averageEngagement}%</div>
             <p className={styles.cardDescription}>+5.2% esta semana</p>
           </div>
+        </div>
+      </section>
+
+      {/* Users by Plan */}
+      <section className={styles.card}>
+        <div className={styles.cardHeader}>
+          <span className={styles.cardTitle}>Usuários por Plano</span>
+        </div>
+        <div className={styles.cardContent}>
+          <div className={styles.statsGrid3}>
+            {data.usersByPlan.map((plan) => (
+              <div key={plan.plan} className={styles.statRow}>
+                <span className={styles.statLabel}>{plan.plan}</span>
+                <span className={styles.badgeOutline}>{plan.active} ativos</span>
+                <span className={styles.statValue}>{plan.active} de {plan.total} usuários ({((plan.active / plan.total) * 100).toFixed(1)}%)</span>
+                <div className={styles.progressBar}>
+                  <div className={styles.progressFill} style={{width: `${(plan.active / plan.total) * 100}%`}}></div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Geographic Distribution */}
+      <section className={styles.card}>
+        <div className={styles.cardHeader}>
+          <span className={styles.cardTitle}>Distribuição Geográfica dos Usuários Ativos</span>
+        </div>
+        <div className={styles.cardContent}>
+          <div className={styles.tabsList}>
+            <button className={styles.tabButton}>Países</button>
+            <button className={styles.tabButton}>Estados</button>
+            <button className={styles.tabButton}>Cidades</button>
+          </div>
+          <div className={styles.tabsContent}>
+            {data.usersByLocation.countries.map((country, index) => (
+              <div key={country.name} className={styles.statRow}>
+                <span className={styles.rank}>#{index + 1}</span>
+                <span className={styles.statLabel}>{country.name}</span>
+                <span className={styles.badgeOutline}>{country.count} usuários</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Interaction Patterns */}
+      <section className={styles.card}>
+        <div className={styles.cardHeader}>
+          <span className={styles.cardTitle}>Padrões de Interação dos Usuários</span>
+        </div>
+        <div className={styles.cardContent}>
+          {data.interactionPatterns.map((pattern) => (
+            <div key={pattern.pattern} className={styles.statRow}>
+              <span className={styles.statLabel}>{pattern.description}</span>
+              <span className={styles.badgeOutline}>{pattern.percentage}%</span>
+              <span className={styles.statValue}>{pattern.count} usuários</span>
+              <div className={styles.progressBar}>
+                <div className={styles.progressFill} style={{width: `${pattern.percentage}%`}}></div>
+              </div>
+            </div>
+          ))}
         </div>
       </section>
 

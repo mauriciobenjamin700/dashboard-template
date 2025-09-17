@@ -3,7 +3,7 @@
   flex-direction: column;
   gap: 2rem;
   padding: 2rem;
-  background: #fff;
+  background: #f9fafb;
 }
 
 .headerSection {
@@ -24,7 +24,7 @@
 
 .kpiGrid {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: repeat(5, 1fr);
   gap: 1.5rem;
 }
 
@@ -74,11 +74,18 @@
   gap: 1.5rem;
 }
 
+.statsGrid3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
 .statRow {
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin-bottom: 0.5rem;
+  gap: 1rem;
 }
 
 .statLabel {
@@ -187,4 +194,29 @@
 .tipMeta {
   font-size: 0.85rem;
   color: #6b7280;
+}
+
+.tabsList {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.tabButton {
+  background: #e5e7eb;
+  border: none;
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  color: #374151;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.tabButton:hover {
+  background: #d1d5db;
+}
+
+.tabsContent {
+  margin-top: 1rem;
 }
