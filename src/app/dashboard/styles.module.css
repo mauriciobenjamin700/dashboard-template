@@ -1,0 +1,190 @@
+.dashboardContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 2rem;
+  background: #fff;
+}
+
+.headerSection {
+  margin-bottom: 1rem;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #142711;
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  color: #6b7280;
+  font-size: 1.1rem;
+}
+
+.kpiGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 0.5rem;
+}
+
+.cardTitle {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #374151;
+}
+
+.cardContent {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.cardValue {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #111827;
+}
+
+.cardDescription {
+  font-size: 0.85rem;
+  color: #6b7280;
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.statRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.statLabel {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #374151;
+}
+
+.statValue {
+  font-size: 1rem;
+  color: #6b7280;
+}
+
+.badge {
+  background: #e0e7ff;
+  color: #3730a3;
+  border-radius: 8px;
+  padding: 0.2rem 0.7rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.badgeSuccess {
+  background: #d1fae5;
+  color: #065f46;
+  border-radius: 8px;
+  padding: 0.2rem 0.7rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.badgeOutline {
+  border: 1px solid #d1d5db;
+  background: #fff;
+  color: #374151;
+  border-radius: 8px;
+  padding: 0.2rem 0.7rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.rank {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #6366f1;
+  margin-right: 0.5rem;
+}
+
+.progressBar {
+  width: 100%;
+  height: 8px;
+  background: #e5e7eb;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-top: 0.2rem;
+}
+
+.progressFill {
+  height: 100%;
+  background: #6366f1;
+  border-radius: 4px;
+  transition: width 0.3s;
+}
+
+.moodRow {
+  margin-bottom: 0.7rem;
+}
+
+.tipRow {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.tipTitle {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #374151;
+}
+
+.tipContent {
+  font-size: 0.95rem;
+  color: #6b7280;
+  margin-bottom: 0.3rem;
+}
+
+.tipBadges {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.2rem;
+}
+
+.tipStats {
+  text-align: right;
+}
+
+.tipEngagement {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #6366f1;
+}
+
+.tipMeta {
+  font-size: 0.85rem;
+  color: #6b7280;
+}

@@ -16,19 +16,19 @@ export default function Sidebar() {
         ]
     },
     {
+        group: "Gestão de Usuários",
+        items: [
+        { title: "Usuários", url: "/dashboard/users", icon: Users },
+        { title: "Engajamento", url: "/dashboard/engagement", icon: TrendingUp }
+        ]
+    },
+    {
         group: "Gestão de Conteúdo",
         items: [
         { title: "Dicas", url: "/dashboard/tips", icon: MessageSquare },
         { title: "Diagnósticos", url: "/dashboard/diagnoses", icon: Brain },
         { title: "Personalidades", url: "/dashboard/personalities", icon: Heart },
         { title: "Linguagens do Amor", url: "/dashboard/love-languages", icon: BookOpen }
-        ]
-    },
-    {
-        group: "Gestão de Usuários",
-        items: [
-        { title: "Usuários", url: "/dashboard/users", icon: Users },
-        { title: "Engajamento", url: "/dashboard/engagement", icon: TrendingUp }
         ]
     },
     {
