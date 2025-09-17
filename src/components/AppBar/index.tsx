@@ -69,7 +69,7 @@ export default function Sidebar() {
         <div className={styles.sidebarContent}>
             <div className={styles.sidebarHeader}>
             {!isCollapsed && (
-                <h2 className={styles.sidebarTitle}>HealthMind Admin</h2>
+                <h2 className={styles.sidebarTitle}>ReLove Admin</h2>
             )}
             </div>
             {menuItems.map((section) => (
