@@ -1,0 +1,40 @@
+.layoutHeader {
+    height: 64px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #e5e7eb;
+    background: var(--card, #fff);
+    padding: 0 24px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+}
+
+.headerMain {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.headerTitle {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--foreground, #142711);
+}
+
+.headerRight {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.headerWelcome {
+    font-size: 0.875rem;
+    color: var(--muted-foreground, #6b7280);
+}
+
+.headerAvatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 9999px;
+    background: linear-gradient(90deg, var(--primary, #0284c7), var(--primary-glow, #7dd3fc));
+}

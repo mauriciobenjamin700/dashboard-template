@@ -1,0 +1,23 @@
+.layoutWrapper {
+  min-height: 100vh;
+  display: flex;
+  width: 100%;
+  background: var(--background, #f9fafb);
+}
+
+.layoutContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebarTrigger {
+  margin-right: 16px;
+}
+
+
+.layoutMain {
+  flex: 1;
+  padding: 24px;
+  background: rgba(243,244,246,0.2);
+}

@@ -13,7 +13,7 @@ export default function LoginPage() {
   }
 
   return (
-    <div className={styles.page}>
+    <div className="container">
       <h1>Login Page</h1>
       <form
         id="login-form"
