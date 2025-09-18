@@ -1,5 +1,4 @@
 import KPICard from '@/components/KPICard';
-import styles from './styles.module.css';
 import KPIGrid from '@/components/KPIGrid';
 
 interface KPIData {

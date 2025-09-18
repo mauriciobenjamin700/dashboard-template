@@ -1,0 +1,118 @@
+.tableCard {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  padding: 1.2rem 1.5rem;
+}
+
+.tableHeader {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 1rem;
+}
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.table th, .table td {
+  padding: 0.7rem 0.5rem;
+  text-align: left;
+  border-bottom: 1px solid #f3f4f6;
+}
+.table th {
+  color: #6b7280;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+.userInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+.userName {
+  font-weight: 600;
+  color: #374151;
+}
+.userEmail {
+  font-size: 0.95rem;
+  color: #6b7280;
+}
+.userAge {
+  font-size: 0.85rem;
+  color: #9ca3af;
+}
+.badgeActive {
+  background: #d1fae5;
+  color: #065f46;
+  border-radius: 8px;
+  padding: 0.2rem 0.7rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+.badgeInactive {
+  background: #f3f4f6;
+  color: #6b7280;
+  border-radius: 8px;
+  padding: 0.2rem 0.7rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+.badgeList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+}
+.badgeOutline {
+  border: 1px solid #d1d5db;
+  background: #fff;
+  color: #374151;
+  border-radius: 8px;
+  padding: 0.2rem 0.7rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+.badgeSecondary {
+  background: #e0e7ff;
+  color: #3730a3;
+  border-radius: 8px;
+  padding: 0.2rem 0.7rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+.engagementScore {
+  font-weight: 600;
+  color: #6366f1;
+}
+.lastActive {
+  font-size: 0.95rem;
+  color: #6b7280;
+}
+
+.popoverContent {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  padding: 1rem;
+  min-width: 160px;
+  z-index: 100;
+  border: 1px solid #e5e7eb;
+}
+.popoverAction {
+  background: none;
+  border: none;
+  color: #374151;
+  font-size: 1rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.2s, color 0.2s;
+}
+.popoverAction:hover {
+  background: #f3f4f6;
+  color: #6366f1;
+}

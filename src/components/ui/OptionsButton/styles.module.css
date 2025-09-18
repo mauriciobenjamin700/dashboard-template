@@ -1,0 +1,8 @@
+.container {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0.2rem;
+  border-radius: 6px;
+  transition: background 0.2s;
+}

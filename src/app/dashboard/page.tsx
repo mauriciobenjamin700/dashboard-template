@@ -1,5 +1,4 @@
 import KPICards from "@/components/Sections/KPICards"
-import styles from "./styles.module.css"
 import { mockDashboard } from "@/lib/mockData"
 import UserPlansPreview from "@/components/Sections/UserPlansPreview"
 import UserGeographicDistribution from "@/components/Sections/UserGeographicDistribution"
