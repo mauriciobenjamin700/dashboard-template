@@ -82,6 +82,17 @@
 
 .statRow {
   display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 0.5rem;
+  gap: 1rem;
+}
+
+.statCol {
+  display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: space-between;
   margin-bottom: 0.5rem;
@@ -198,12 +209,15 @@
 
 .tabsList {
   display: flex;
+  align-items: center;
+  justify-content: center;
   gap: 1rem;
   margin-bottom: 1rem;
 }
 
 .tabButton {
-  background: #e5e7eb;
+  flex: 1;
+  background: var(--gray-soft);
   border: none;
   border-radius: 6px;
   padding: 0.5rem 1rem;
@@ -214,9 +228,24 @@
 }
 
 .tabButton:hover {
-  background: #d1d5db;
+  background: var(--gray-light);
+}
+
+.tabButton.active {
+  background: var(--white);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  color: var(--black);
+  font-weight: bold;
 }
 
 .tabsContent {
   margin-top: 1rem;
+}
+
+.planSituation {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
 }

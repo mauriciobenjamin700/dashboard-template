@@ -75,9 +75,9 @@ export const mockDashboard = {
     { mood: "triste", percentage: 15 }
   ],
   usersByPlan: [
-    { plan: "Free", active: 6000, total: 8000 },
-    { plan: "Premium", active: 2000, total: 3000 },
-    { plan: "Enterprise", active: 450, total: 1450 }
+    { plan: "Teste", active: 6000, total: 8000 },
+    { plan: "PRO", active: 2000, total: 3000 },
+    { plan: "PRO Max", active: 450, total: 1450 }
   ],
   usersByLocation: {
     countries: [

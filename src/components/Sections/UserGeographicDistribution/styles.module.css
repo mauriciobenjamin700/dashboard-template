@@ -1,0 +1,92 @@
+.card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.cardHeader {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 0.5rem;
+}
+
+.cardTitle {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #374151;
+}
+
+.cardContent {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.tabsList {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.tabButton {
+    flex: 1;
+    background: var(--gray-soft);
+    border: none;
+    border-radius: 6px;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    color: #374151;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.tabButton.active {
+    background: var(--white);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    color: var(--black);
+    font-weight: bold;
+}
+
+.tabsContent {
+    margin-top: 1rem;
+}
+
+.statRow {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 0.5rem;
+    gap: 1rem;
+}
+
+.rank {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #6366f1;
+    margin-right: 0.5rem;
+}
+
+.statLabel {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #374151;
+}
+
+.badgeOutline {
+    border: 1px solid #d1d5db;
+    background: #fff;
+    color: #374151;
+    border-radius: 8px;
+    padding: 0.2rem 0.7rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
