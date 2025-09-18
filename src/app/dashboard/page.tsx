@@ -29,7 +29,7 @@ export default function DashboardPage() {
   }
 
   return (
-    <div className={styles.dashboardContainer}>
+    <>
       <SectionHeader 
         title="Visão Geral"
         subtitle="Acompanhe as principais métricas da plataforma"
@@ -40,6 +40,6 @@ export default function DashboardPage() {
       <UserInteractionPatterns interactionPatterns={data.interactionPatterns} />
       <UserPreferencesPreview userPreferences={userPreferences} />
       <TopTips topTips={data.topTips} />
-    </div>
+    </>
   )
 }

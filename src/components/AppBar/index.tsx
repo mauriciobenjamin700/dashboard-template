@@ -1,9 +1,11 @@
+"use client";
 import {
-  BarChart3, Users, MessageSquare, Settings, 
-  Heart, Brain, BookOpen, Bell, Shield,
-  Activity, TrendingUp, FileText, Mail
-} from "lucide-react"
+    BarChart3, Users, MessageSquare, Settings, 
+    Heart, Brain, BookOpen, Bell, Shield,
+    Activity, TrendingUp, FileText, Mail
+} from "lucide-react";
 import styles from "./styles.module.css";
+import { usePathname } from "next/navigation";
 
 export default function Sidebar() {
     const menuItems = [
@@ -47,22 +49,23 @@ export default function Sidebar() {
     }
     ]
 
+
     // Simulação de estado colapsado
     const isCollapsed = false;
-    // Simulação de localização
-    const location = { pathname: "/dashboard" };
+    // Pega a rota atual dinamicamente
+    const pathname = usePathname();
 
     const isActive = (path: string) => {
         if (path === "/dashboard") {
-        return location.pathname === "/dashboard";
+            return pathname === "/dashboard";
         }
-        return location.pathname.startsWith(path);
+        return pathname.startsWith(path);
     };
 
     const getNavClass = (path: string) =>
         isActive(path)
-        ? styles.activeNav
-        : styles.inactiveNav;
+            ? styles.activeNav
+            : styles.inactiveNav;
 
     return (
         <aside className={isCollapsed ? styles.sidebarCollapsed : styles.sidebarExpanded}>

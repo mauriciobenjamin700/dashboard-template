@@ -1,4 +1,9 @@
 .sidebarExpanded {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  z-index: 100;
   width: 256px;
   background: #f9fafb;
   min-height: 100vh;
@@ -6,6 +11,11 @@
   transition: width 0.2s;
 }
 .sidebarCollapsed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  z-index: 100;
   width: 56px;
   background: #f9fafb;
   min-height: 100vh;

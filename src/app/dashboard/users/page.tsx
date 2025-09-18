@@ -2,7 +2,10 @@
 
 import { useState } from "react"
 import styles from "./styles.module.css"
-import { mockUsers, User } from "@/lib/mockData"
+import { mockUsers } from "@/lib/mockData"
+import SectionHeader from "@/components/SectionHeader"
+import KPIGrid from "@/components/KPIGrid"
+import KPICard from "@/components/KPICard"
 
 export default function UsersPage() {
 
@@ -50,38 +53,38 @@ export default function UsersPage() {
   }
 
   return (
-    <div className={styles.usersContainer}>
+    <>
       <div className={styles.headerRow}>
-        <div>
-          <h1 className={styles.title}>Gestão de Usuários</h1>
-          <p className={styles.subtitle}>Gerencie usuários da plataforma e seus dados</p>
-        </div>
+        <SectionHeader 
+          title="Gestão de Usuários"
+          subtitle="Gerencie usuários da plataforma e seus dados"
+        />
         <button className={styles.exportButton}>Exportar Relatório</button>
       </div>
 
       {/* Stats Cards */}
-      <section className={styles.statsGrid}>
-        <div className={styles.card}>
-          <div className={styles.cardHeader}>Total de Usuários</div>
-          <div className={styles.cardContent}>{mockUsers.length}</div>
-          <div className={styles.cardDescription}>+2 novos hoje</div>
-        </div>
-        <div className={styles.card}>
-          <div className={styles.cardHeader}>Usuários Ativos</div>
-          <div className={styles.cardContent}>{mockUsers.filter(u => u.is_active).length}</div>
-          <div className={styles.cardDescription}>{((mockUsers.filter(u => u.is_active).length / mockUsers.length) * 100).toFixed(1)}% do total</div>
-        </div>
-        <div className={styles.card}>
-          <div className={styles.cardHeader}>Engajamento Médio</div>
-          <div className={styles.cardContent}>{(mockUsers.reduce((acc, u) => acc + u.engagement_score, 0) / mockUsers.length).toFixed(1)}%</div>
-          <div className={styles.cardDescription}>Últimos 30 dias</div>
-        </div>
-        <div className={styles.card}>
-          <div className={styles.cardHeader}>Cadastros Este Mês</div>
-          <div className={styles.cardContent}>12</div>
-          <div className={styles.cardDescription}>+25% vs mês anterior</div>
-        </div>
-      </section>
+      <KPIGrid gridColumns={4}>
+        <KPICard
+          title="Total de Usuários"
+          value={mockUsers.length.toString()}
+          description="+2 novos hoje"
+        />
+        <KPICard
+          title="Usuários Ativos"
+          value={mockUsers.filter(u => u.is_active).length.toString()}
+          description={`${((mockUsers.filter(u => u.is_active).length / mockUsers.length) * 100).toFixed(1)}% do total`}
+        />
+        <KPICard
+          title="Engajamento Médio"
+          value={`${(mockUsers.reduce((acc, u) => acc + u.engagement_score, 0) / mockUsers.length).toFixed(1)}%`}
+          description="Últimos 30 dias"
+        />
+        <KPICard 
+          title="Novos Cadastros"
+          value="12"
+          description="+25% vs mês anterior"
+        />
+      </KPIGrid>
 
       {/* Advanced Filters */}
       <section className={styles.filtersCard}>
@@ -202,6 +205,6 @@ export default function UsersPage() {
           </tbody>
         </table>
       </section>
-    </div>
+    </>
   )
 }

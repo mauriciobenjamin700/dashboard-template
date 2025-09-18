@@ -1,5 +1,6 @@
 import KPICard from '@/components/KPICard';
 import styles from './styles.module.css';
+import KPIGrid from '@/components/KPIGrid';
 
 interface KPIData {
   totalUsers: number;
@@ -11,7 +12,7 @@ interface KPIData {
 
 export default function KPICards(data: KPIData) {
   return (
-    <section className={styles.kpiGrid}>
+    <KPIGrid gridColumns={5}>
       <KPICard 
         title="Total de Usuários" 
         value={data.totalUsers.toLocaleString()} 
@@ -37,6 +38,6 @@ export default function KPICards(data: KPIData) {
         value={`${data.averageEngagement}%`} 
         description="+5.2% esta semana"
       />
-      </section>
+      </KPIGrid>
   )
 }

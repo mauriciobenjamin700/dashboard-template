@@ -12,7 +12,7 @@ export default function Dashboard({ children }: HeaderProps) {
     <div className={styles.layoutWrapper}>
       <AppBar />
       <div className={styles.layoutContent}>
-      <Header />
+        <Header />
         <main className={styles.layoutMain}>
           {children}
         </main>
