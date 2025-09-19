@@ -1,3 +1,4 @@
+import { ClipboardCheck } from 'lucide-react';
 import styles from './styles.module.css'
 
 interface Tip {
@@ -17,11 +18,12 @@ interface TopTipsData {
 
 export default function TopTips(data: TopTipsData) {
     return(
-      <section className={styles.card}>
-        <div className={styles.cardHeader}>
-          <span className={styles.cardTitle}>Dicas com Melhor Performance</span>
+      <section className="card">
+        <div className="cardHeader">
+          <ClipboardCheck className="cardIcon" />
+          <span className="cardTitle">Dicas com Melhor Performance</span>
         </div>
-        <div className={styles.cardContent}>
+        <div className="cardContent">
           {data.topTips.map((tip) => (
             <div key={tip.id} className={styles.tipRow}>
               <div>

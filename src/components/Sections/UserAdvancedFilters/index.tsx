@@ -1,4 +1,5 @@
 import styles from "./styles.module.css"
+import { SlidersVertical } from "lucide-react";
 
 interface FilterState {
   searchTerm: string;
@@ -45,7 +46,12 @@ export default function UserAdvancedFilters({
   return (
     <section className={styles.filtersCard}>
         <div className={styles.filtersHeader}>
-          <span className={styles.filtersTitle}>Filtros Avançados</span>
+          <span 
+            className={styles.filtersTitle}
+            >
+              <SlidersVertical size={25} style={{ marginRight: "0.5rem", verticalAlign: "middle" }} />
+              Filtros Avançados
+          </span>
           <button className={styles.clearButton} onClick={clearAllFilters}>Limpar Filtros</button>
         </div>
         <div className={styles.filtersGrid}>

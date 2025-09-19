@@ -1,6 +1,7 @@
 import * as Popover from "@radix-ui/react-popover";
 import styles from "./styles.module.css";
 import OptionsButton from "@/components/ui/OptionsButton";
+import { Users } from "lucide-react";
 
 interface UserTableProps {
     filteredUsers: Array<{
@@ -57,7 +58,10 @@ export default function UserTable ({ filteredUsers }: UserTableProps) {
 
     return (
         <section className={styles.tableCard}>
-            <div className={styles.tableHeader}>Usuários ({filteredUsers.length})</div>
+            <div className={styles.tableHeader}>
+                <Users className="cardIcon" />
+                Usuários ({filteredUsers.length})
+            </div>
             <table className={styles.table}>
             <thead>
                 <tr>

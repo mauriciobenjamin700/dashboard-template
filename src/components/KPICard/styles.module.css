@@ -13,8 +13,9 @@
 .cardHeader {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
-  margin-bottom: 0.5rem;
+  justify-content: center;
+  gap: 0.8rem;
+  width: 100%;
 }
 
 .cardTitle {
@@ -22,6 +23,7 @@
   font-weight: 600;
   color: #374151;
 }
+
 
 .cardContent {
   display: flex;
