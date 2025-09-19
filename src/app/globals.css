@@ -127,3 +127,8 @@ form button {
   height: 24px;
   color: #6366f1;
 }
+
+.profile{
+  border-radius: 50%;
+  padding: 8px;
+}

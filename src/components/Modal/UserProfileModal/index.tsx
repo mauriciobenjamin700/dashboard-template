@@ -1,6 +1,7 @@
 import styles from "./styles.module.css";
 import { UserRound, Heart, TrendingUp, Brain } from "lucide-react";
 import { useState } from "react";
+import Modal from "@/components/Modal";
 
 
 interface UserProfileModalProps {
@@ -9,18 +10,15 @@ interface UserProfileModalProps {
   onClose: () => void;
 }
 
-
 export default function UserProfileModal({ user, open, onClose }: UserProfileModalProps) {
   const [activeTab, setActiveTab] = useState(0);
-  if (!open || !user) return null;
+  if (!user) return null;
   return (
-    <div className={styles.overlay}>
-      <div className={styles.modal}>
-        <button className={styles.closeButton} onClick={onClose}>×</button>
-        <div className={styles.profileHeader}>
-          <div className={styles.avatar}>
-            <UserRound size={48} color="#fff" style={{ background: "#7c3aed", borderRadius: "50%", padding: 8 }} />
-          </div>
+    <Modal open={open} onClose={onClose}>
+      <div className={styles.profileHeader}>
+        <div className={styles.avatar}>
+          <UserRound size={48} color="#fff" className="profile" />
+        </div>
           <div>
             <h2 className={styles.profileName}>{user.name}</h2>
             <p className={styles.profileEmail}>{user.email}</p>
@@ -134,7 +132,6 @@ export default function UserProfileModal({ user, open, onClose }: UserProfileMod
             </div>
           </div>
         )}
-      </div>
-    </div>
+    </Modal>
   );
 }

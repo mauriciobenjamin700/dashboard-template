@@ -5,6 +5,7 @@ import styles from "./styles.module.css";
 import OptionsButton from "@/components/ui/OptionsButton";
 import { Eye, Key, Mail, User, UserCheck, UserRoundX, Users } from "lucide-react";
 import UserProfileModal from "@/components/Modal/UserProfileModal";
+import ConfirmModal from "@/components/Modal/ConfirmModal";
 
 interface UserTableProps {
     filteredUsers: Array<User>;
@@ -14,7 +15,8 @@ export default function UserTable ({ filteredUsers }: UserTableProps) {
 
     const [selectedUser, setSelectedUser] = useState<User | null>(null);
     const [showProfileModal, setShowProfileModal] = useState(false);
-
+    const [showConfirmModal, setShowConfirmModal ] = useState(false);
+    const [confirmModalData, setConfirmModalData] = useState<{content: string; onConfirm: () => void;} | null>(null);
 
     const getStatusBadge = (isActive: boolean) => (
         <span className={isActive ? styles.badgeActive : styles.badgeInactive}>
@@ -35,13 +37,23 @@ export default function UserTable ({ filteredUsers }: UserTableProps) {
     }
 
     const handleActivateUser = (userId: number) => {
-        // Lógica para ativar o usuário
-        alert(`Usuário ${userId} ativado`);
+        setConfirmModalData({
+            content: "Você tem certeza que deseja ativar este usuário?",
+            onConfirm: () => {
+                // Lógica para ativar o usuário
+                alert(`Usuário ${userId} ativado`);
+            }
+        })
     }
 
     const handleDeActivateUser = (userId: number) => {
-        // Lógica para desativar o usuário
-        alert(`Usuário ${userId} desativado`);
+        setConfirmModalData({
+            content: "Você tem certeza que deseja desativar este usuário?",
+            onConfirm: () => {
+                // Lógica para desativar o usuário
+                alert(`Usuário ${userId} desativado`);
+            }
+        })
     }
 
     const handleResetPassword = (userId: number) => {
@@ -60,6 +72,16 @@ export default function UserTable ({ filteredUsers }: UserTableProps) {
                 user={selectedUser}
                 open={showProfileModal}
                 onClose={() => setShowProfileModal(false)}
+            />
+            <ConfirmModal
+                title="Confirmar Ação"
+                content={confirmModalData ? confirmModalData.content : ""}
+                onConfirm={() => {
+                    confirmModalData?.onConfirm();
+                    setConfirmModalData(null);  
+                }}
+                onCancel={() => setConfirmModalData(null)}
+                open={!!confirmModalData}
             />
             <div className={styles.tableHeader}>
                 <Users className="cardIcon" />

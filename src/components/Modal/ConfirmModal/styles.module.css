@@ -1,0 +1,52 @@
+.confirmModal{
+    padding: 10px;
+    border-radius: 8px;
+    width: 100%;
+}
+
+.confirmTitle {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #111827;
+}
+
+.confirmContent {
+    font-size: 1rem;
+    margin-bottom: 20px;
+    color: #374151;
+}
+
+.buttonsRow {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.button{
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.confirmButton {
+    background: #0a0ad6;
+    color: white;
+    margin-right: 10px;
+}
+
+.confirmButton:hover {
+    background: #9292f6;
+}
+
+.cancelButton {
+    background: #f3f4f6;
+    color: #374151;
+}
+
+.cancelButton:hover {
+    background: #e5e7eb;
+}
