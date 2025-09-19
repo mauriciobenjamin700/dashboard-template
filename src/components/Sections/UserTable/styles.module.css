@@ -116,3 +116,18 @@
   background: #f3f4f6;
   color: #6366f1;
 }
+
+.textSuccess {
+  color: #10b981;
+  font-weight: 600;
+}
+
+.textWarning {
+  color: #f59e0b;
+  font-weight: 600;
+}
+
+.textDanger {
+  color: #ef4444;
+  font-weight: 600;
+}

@@ -92,7 +92,7 @@ export const mockDashboard = {
     ],
     cities: [
       { name: "São Paulo", state: "São Paulo", country: "Brasil", count: 1500 },
-      { name: "Rio de Janeiro", state: "Rio de Janeiro", country: "Brasil", count: 900 },
+      { name: "Teresina", state: "Piauí", country: "Brasil", count: 900 },
       { name: "Lisboa", state: "Lisboa", country: "Portugal", count: 700 }
     ]
   },

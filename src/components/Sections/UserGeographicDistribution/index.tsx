@@ -17,6 +17,11 @@ interface UserGeographicDistributionProps {
 
 export default function UserGeographicDistribution( data: UserGeographicDistributionProps ) {
   const [activeTab, setActiveTab] = useState<'countries' | 'states' | 'cities'>('countries');
+  const [tabData, setTabData] = useState<LocationData[]>(data.usersByLocation.countries);
+  const handleSelectTab = (tab: 'countries' | 'states' | 'cities') => {
+    setActiveTab(tab);
+    setTabData(data.usersByLocation[tab]);
+  }
 
   return (
     <section className={styles.card}>
@@ -25,12 +30,12 @@ export default function UserGeographicDistribution( data: UserGeographicDistribu
         </div>
         <div className={styles.cardContent}>
           <div className={styles.tabsList}>
-            <button className={`${styles.tabButton} ${activeTab === 'countries' ? styles.active : ''}`} onClick={() => setActiveTab('countries')}>Países</button>
-            <button className={`${styles.tabButton} ${activeTab === 'states' ? styles.active : ''}`} onClick={() => setActiveTab('states')}>Estados</button>
-            <button className={`${styles.tabButton} ${activeTab === 'cities' ? styles.active : ''}`} onClick={() => setActiveTab('cities')}>Cidades</button>
+            <button className={`${styles.tabButton} ${activeTab === 'countries' ? styles.active : ''}`} onClick={() => handleSelectTab('countries')}>Países</button>
+            <button className={`${styles.tabButton} ${activeTab === 'states' ? styles.active : ''}`} onClick={() => handleSelectTab('states')}>Estados</button>
+            <button className={`${styles.tabButton} ${activeTab === 'cities' ? styles.active : ''}`} onClick={() => handleSelectTab('cities')}>Cidades</button>
           </div>
           <div className={styles.tabsContent}>
-            {data.usersByLocation.countries.map((country, index) => (
+            {tabData.map((country, index) => (
               <div key={country.name} className={styles.statRow}>
                 <div>
                   <span className={styles.rank}>#{index + 1}</span>

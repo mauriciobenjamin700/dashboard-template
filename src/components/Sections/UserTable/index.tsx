@@ -30,9 +30,9 @@ export default function UserTable ({ filteredUsers }: UserTableProps) {
         return styles.textDestructive;
     };
 
-    const handleBanUser = (userId: number) => {
-        // Lógica para banir o usuário
-        alert(`Usuário ${userId} banido`);
+    const handleShowProfile = (userId: number) => {
+        // Lógica para mostrar o perfil do usuário
+        alert(`Mostrando perfil do usuário ${userId}`);
     }
 
     const handleActivateUser = (userId: number) => {
@@ -48,6 +48,11 @@ export default function UserTable ({ filteredUsers }: UserTableProps) {
     const handleResetPassword = (userId: number) => {
         // Lógica para resetar a senha do usuário
         alert(`Senha do usuário ${userId} resetada`);
+    }
+
+    const handleSendMessage = (userId: number) => {
+        // Lógica para enviar mensagem ao usuário
+        alert(`Mensagem enviada para o usuário ${userId}`);
     }
 
     return (
@@ -112,27 +117,34 @@ export default function UserTable ({ filteredUsers }: UserTableProps) {
                         <Popover.Content sideOffset={8} className={styles.popoverContent} align="end">
                             <button 
                                 className={styles.popoverAction}
-                                onClick={() => handleBanUser(user.id)}
+                                onClick={() => handleShowProfile(user.id)}
                             >
-                                Banir
+                                Ver Perfil
                             </button>
                             <button 
                                 className={styles.popoverAction}
-                                onClick={() => handleActivateUser(user.id)}
+                                onClick={() => handleSendMessage(user.id)}
                             >
-                                Ativar
+                                Enviar Mensagem
                             </button>
                             <button 
-                                className={styles.popoverAction}
-                                onClick={() => handleDeActivateUser(user.id)}
-                            >
-                                Desativar
-                            </button>
-                            <button
                                 className={styles.popoverAction}
                                 onClick={() => handleResetPassword(user.id)}
                             >
-                                Resetar Senha
+                                Redefinir Senha
+                            </button>
+                            <button
+                                className={styles.popoverAction}
+                                onClick={() => {
+                                    user.is_active ? 
+                                    handleDeActivateUser(user.id) 
+                                    : 
+                                    handleActivateUser(user.id)
+                                }}
+                            >
+                                {
+                                    user.is_active ? "Desativar Conta" : "Ativar Conta"
+                                }
                             </button>
                         </Popover.Content>
                         </Popover.Root>
