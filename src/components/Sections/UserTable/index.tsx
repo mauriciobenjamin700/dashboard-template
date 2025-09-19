@@ -1,30 +1,26 @@
+"use client"
+import { useState } from "react";
 import * as Popover from "@radix-ui/react-popover";
 import styles from "./styles.module.css";
 import OptionsButton from "@/components/ui/OptionsButton";
-import { Eye, Key, Mail, UserCheck, UserRoundX, Users } from "lucide-react";
+import { Eye, Key, Mail, User, UserCheck, UserRoundX, Users } from "lucide-react";
+import UserProfileModal from "@/components/Modal/UserProofileModal";
 
 interface UserTableProps {
-    filteredUsers: Array<{
-        id: number;
-        name: string;
-        email: string;
-        age: number;
-        is_active: boolean;
-        diagnoses: string[];
-        love_languages: string[];
-        engagement_score: number;
-        last_active: string;
-    }>;
+    filteredUsers: Array<User>;
 }
 
 export default function UserTable ({ filteredUsers }: UserTableProps) {
+
+    const [selectedUser, setSelectedUser] = useState<User | null>(null);
+    const [showProfileModal, setShowProfileModal] = useState(false);
+
 
     const getStatusBadge = (isActive: boolean) => (
         <span className={isActive ? styles.badgeActive : styles.badgeInactive}>
             {isActive ? "Ativo" : "Inativo"}
         </span>
     );
-
     const getEngagementColor = (score: number) => {
         if (score >= 80) return styles.textSuccess;
         if (score >= 60) return styles.textWarning;
@@ -33,7 +29,9 @@ export default function UserTable ({ filteredUsers }: UserTableProps) {
 
     const handleShowProfile = (userId: number) => {
         // Lógica para mostrar o perfil do usuário
-        alert(`Mostrando perfil do usuário ${userId}`);
+        const user = filteredUsers.find(u => u.id === userId) || null;
+        setSelectedUser(user);
+        setShowProfileModal(true);
     }
 
     const handleActivateUser = (userId: number) => {
@@ -58,6 +56,11 @@ export default function UserTable ({ filteredUsers }: UserTableProps) {
 
     return (
         <section className={styles.tableCard}>
+            <UserProfileModal
+                user={selectedUser}
+                open={showProfileModal}
+                onClose={() => setShowProfileModal(false)}
+            />
             <div className={styles.tableHeader}>
                 <Users className="cardIcon" />
                 Usuários ({filteredUsers.length})
@@ -89,11 +92,11 @@ export default function UserTable ({ filteredUsers }: UserTableProps) {
                     </td>
                     <td>
                     <div className={styles.badgeList}>
-                        {user.diagnoses.slice(0, 2).map((diagnosis) => (
+                        {user.psychiatric_diagnoses.slice(0, 2).map((diagnosis) => (
                         <span key={diagnosis} className={styles.badgeOutline}>{diagnosis}</span>
                         ))}
-                        {user.diagnoses.length > 2 && (
-                        <span className={styles.badgeSecondary}>+{user.diagnoses.length - 2}</span>
+                        {user.psychiatric_diagnoses.length > 2 && (
+                        <span className={styles.badgeSecondary}>+{user.psychiatric_diagnoses.length - 2}</span>
                         )}
                     </div>
                     </td>

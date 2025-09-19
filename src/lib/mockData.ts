@@ -1,64 +1,107 @@
-export type User = {
-  id: number;
-  name: string;
-  email: string;
-  age: number;
-  is_active: boolean;
-  diagnoses: string[];
-  personalities: string[];
-  love_languages: string[];
-  engagement_score: number;
-  last_active: string;
-};
-
 export const mockUsers: User[] = [
   {
     id: 1,
     name: "João Silva",
+    last_name: "Silva",
     email: "joao.silva@email.com",
+    date_of_birth: "1997-04-12",
+    gender: "masculino",
+    phone: "+55 11 91234-5678",
     age: 28,
     is_active: true,
-    diagnoses: ["ansiedade", "depressão"],
+    psychiatric_diagnoses: ["ansiedade", "depressão"],
     personalities: ["introvertido", "analítico"],
     love_languages: ["palavras", "tempo"],
+    temperaments: ["sanguíneo", "fleumático"],
     engagement_score: 82,
-    last_active: "2025-09-16T10:30:00Z"
+    plan: "PRO",
+    location: "São Paulo, Brasil",
+    interaction_pattern: "diario",
+    tips_received: 150,
+    feedbacks_given: 45,
+    last_active: "2025-09-16T10:30:00Z",
+    created_at: "2021-03-15T10:00:00Z",
+    updated_at: "2023-07-01T14:20:00Z",
+    has_bible_verses: true,
+    is_admin: false
   },
   {
     id: 2,
     name: "Maria Souza",
+    last_name: "Souza",
     email: "maria.souza@email.com",
+    date_of_birth: "1989-08-22",
+    gender: "feminino",
+    phone: "+55 21 99876-5432",
     age: 34,
     is_active: false,
-    diagnoses: ["tdah"],
+    psychiatric_diagnoses: ["tdah"],
     personalities: ["extrovertido", "otimista"],
+    temperaments: ["sanguíneo", "fleumático"],
     love_languages: ["presentes", "atos", "tempo"],
     engagement_score: 65,
+    plan: "BASIC",
+    location: "Rio de Janeiro, Brasil",
+    interaction_pattern: "semanal",
+    tips_received: 100,
+    feedbacks_given: 30,
+    created_at: "2022-05-20T15:45:00Z",
+    updated_at: "2023-03-10T12:00:00Z",
+    has_bible_verses: false,
+    is_admin: false,
     last_active: "2025-09-15T14:20:00Z"
   },
   {
     id: 3,
     name: "Carlos Pereira",
+    last_name: "Pereira",
     email: "carlos.pereira@email.com",
+    date_of_birth: "1984-02-10",
+    gender: "masculino",
+    phone: "+351 91234-5678",
     age: 41,
+    plan: "Teste",
+    location: "Lisboa, Portugal",
+    interaction_pattern: "mensal",
+    tips_received: 80,
+    feedbacks_given: 20,
     is_active: true,
-    diagnoses: ["bipolaridade", "ansiedade", "toc"],
+    psychiatric_diagnoses: ["bipolaridade", "ansiedade", "toc"],
     personalities: ["sensível"],
+    temperaments: ["colérico", "melancólico"],
     love_languages: ["toque", "palavras"],
     engagement_score: 58,
-    last_active: "2025-09-17T08:10:00Z"
+    last_active: "2025-09-17T08:10:00Z",
+    has_bible_verses: true,
+    is_admin: true,
+    created_at: "2023-01-15T09:00:00Z",
+    updated_at: "2023-06-20T11:30:00Z"
   },
   {
     id: 4,
     name: "Ana Costa",
+    last_name: "Costa",
     email: "ana.costa@email.com",
+    date_of_birth: "2003-11-05",
+    gender: "feminino",
+    phone: "+244 91234-5678",
     age: 22,
+    plan: "FREE",
+    location: "Luanda, Angola",
+    interaction_pattern: "diario",
+    tips_received: 50,
+    feedbacks_given: 10,
     is_active: true,
-    diagnoses: ["ansiedade"],
+    psychiatric_diagnoses: ["ansiedade"],
     personalities: ["introvertido", "sensível"],
     love_languages: ["tempo", "atos"],
+    temperaments: ["melancólico", "fleumático"],
     engagement_score: 90,
-    last_active: "2025-09-17T09:45:00Z"
+    last_active: "2025-09-17T09:45:00Z",
+    is_admin: false,
+    created_at: "2023-02-10T14:15:00Z",
+    updated_at: "2023-08-05T16:00:00Z",
+    has_bible_verses: false
   }
 ];
 export const mockDashboard = {
@@ -108,7 +151,7 @@ export const mockDashboard = {
     { language: "Atos de Serviço", count: 1800 },
     { language: "Toque Físico", count: 1450 }
   ],
-  diagnosesDistribution: [
+  psychiatric_diagnosesDistribution: [
     { diagnosis: "Introvertido", count: 3400 },
     { diagnosis: "Extrovertido", count: 2800 },
     { diagnosis: "Analítico", count: 2200 },

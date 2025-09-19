@@ -32,7 +32,7 @@ export default function UsersPage() {
                       (ageFilter === "36-45" && user.age >= 36 && user.age <= 45) ||
                       (ageFilter === "46+" && user.age >= 46)
     const matchesDiagnosis = diagnosisFilter === "all" ||
-                           user.diagnoses.some(d => d.toLowerCase().includes(diagnosisFilter.toLowerCase()))
+                           user.psychiatric_diagnoses.some(d => d.toLowerCase().includes(diagnosisFilter.toLowerCase()))
     const matchesPersonality = personalityFilter === "all" ||
                               user.personalities.some(p => p.toLowerCase().includes(personalityFilter.toLowerCase()))
     const matchesLoveLanguage = loveLanguageFilter === "all" ||
