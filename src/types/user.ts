@@ -13,6 +13,9 @@ declare global {
         interaction_pattern: string;
         tips_received: number;
         feedbacks_given: number;
+        mood_history?: { date: string; label: string; emoji: string }[];
+        tips_received_list ?: { date: string; tip: string }[];
+        feedbacks_list ?: { date: string; feedback: string }[];
         love_languages: string[];
         temperaments: string[];
         psychiatric_diagnoses: string[];

@@ -19,6 +19,18 @@ export const mockUsers: User[] = [
     interaction_pattern: "diario",
     tips_received: 150,
     feedbacks_given: 45,
+    mood_history: [
+      { date: "2025-09-10", label: "feliz", emoji: "😊" },
+      { date: "2025-09-11", label: "neutro", emoji: "😐" }
+    ],
+    tips_received_list: [
+      { date: "2025-09-10", tip: "Pratique a gratidão diariamente." },
+      { date: "2025-09-12", tip: "Reserve tempo para si mesmo." }
+    ],
+    feedbacks_list: [
+      { date: "2025-09-11", feedback: "Gostei muito do último artigo sobre relacionamentos." },
+      { date: "2025-09-13", feedback: "As dicas de hoje foram muito úteis!" }
+    ],
     last_active: "2025-09-16T10:30:00Z",
     created_at: "2021-03-15T10:00:00Z",
     updated_at: "2023-07-01T14:20:00Z",
@@ -49,6 +61,16 @@ export const mockUsers: User[] = [
     updated_at: "2023-03-10T12:00:00Z",
     has_bible_verses: false,
     is_admin: false,
+    mood_history: [
+      { date: "2025-09-12", label: "triste", emoji: "😢" },
+      { date: "2025-09-14", label: "neutro", emoji: "😐" }
+    ],
+    tips_received_list: [
+      { date: "2025-09-11", tip: "Tente meditar por 10 minutos." }
+    ],
+    feedbacks_list: [
+      { date: "2025-09-13", feedback: "Acho que poderiam ter mais dicas sobre ansiedade." }
+    ],
     last_active: "2025-09-15T14:20:00Z"
   },
   {
@@ -74,6 +96,24 @@ export const mockUsers: User[] = [
     last_active: "2025-09-17T08:10:00Z",
     has_bible_verses: true,
     is_admin: true,
+    mood_history: [
+      { date: "2025-09-10", label: "feliz", emoji: "😊" },
+      { date: "2025-09-09", label: "feliz", emoji: "😊" },
+      { date: "2025-09-08", label: "feliz", emoji: "😊" },
+      { date: "2025-09-07", label: "feliz", emoji: "😊" },
+      { date: "2025-09-06", label: "neutro", emoji: "😐" },
+      { date: "2025-09-05", label: "triste", emoji: "😢" },
+      { date: "2025-09-04", label: "triste", emoji: "😢"},
+      { date: "2025-09-03", label: "neutro", emoji: "😐" },
+      { date: "2025-09-02", label: "feliz", emoji: "😊" },
+      { date: "2025-09-01", label: "feliz", emoji: "😊" }
+    ],
+    tips_received_list: [
+      { date: "2025-09-14", tip: "Lembre-se de fazer pausas durante o trabalho." }
+    ],
+    feedbacks_list: [
+      { date: "2025-09-12", feedback: "As dicas sobre TOC foram muito esclarecedoras." }
+    ],
     created_at: "2023-01-15T09:00:00Z",
     updated_at: "2023-06-20T11:30:00Z"
   },
