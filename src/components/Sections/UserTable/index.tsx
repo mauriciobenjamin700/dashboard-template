@@ -4,7 +4,7 @@ import * as Popover from "@radix-ui/react-popover";
 import styles from "./styles.module.css";
 import OptionsButton from "@/components/ui/OptionsButton";
 import { Eye, Key, Mail, User, UserCheck, UserRoundX, Users } from "lucide-react";
-import UserProfileModal from "@/components/Modal/UserProofileModal";
+import UserProfileModal from "@/components/Modal/UserProfileModal";
 
 interface UserTableProps {
     filteredUsers: Array<User>;

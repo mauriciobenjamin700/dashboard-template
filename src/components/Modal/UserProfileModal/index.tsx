@@ -1,14 +1,14 @@
 import styles from "./styles.module.css";
 import { UserRound, Heart, TrendingUp, Brain } from "lucide-react";
+import { useState } from "react";
+
 
 interface UserProfileModalProps {
-    user: User | null;
-    open: boolean;
-    onClose: () => void;
+  user: User | null;
+  open: boolean;
+  onClose: () => void;
 }
 
-
-import { useState } from "react";
 
 export default function UserProfileModal({ user, open, onClose }: UserProfileModalProps) {
   const [activeTab, setActiveTab] = useState(0);
@@ -110,9 +110,7 @@ export default function UserProfileModal({ user, open, onClose }: UserProfileMod
                 user.tips_received_list.map((tip: any, idx: number) => (
                   <div key={idx} className={styles.tipRow}>
                     <div>
-                      <div style={{ fontWeight: 600 }}>{tip.title}</div>
-                      <div style={{ color: "#6b7280" }}>{tip.content}</div>
-                      <div className={styles.badgeOutline} style={{ marginTop: 4 }}>{tip.category}</div>
+                      <div style={{ fontWeight: 600 }}>{tip.tip}</div>
                     </div>
                     <div style={{ color: "#6b7280", fontSize: "0.95rem" }}>{new Date(tip.date).toLocaleDateString('pt-BR')}</div>
                   </div>
@@ -128,7 +126,7 @@ export default function UserProfileModal({ user, open, onClose }: UserProfileMod
               {user.feedbacks_list && user.feedbacks_list.length > 0 ? (
                 user.feedbacks_list.map((fb: any, idx: number) => (
                   <div key={idx} className={styles.tipRow}>
-                    <div style={{ fontWeight: 600 }}>{fb.content}</div>
+                    <div style={{ fontWeight: 600 }}>{fb.feedback}</div>
                     <div style={{ color: "#6b7280" }}>{new Date(fb.date).toLocaleDateString('pt-BR')}</div>
                   </div>
                 ))

@@ -44,6 +44,12 @@ export default function UsersPage() {
     return matchesSearch && matchesStatus && matchesAge && matchesDiagnosis && 
            matchesPersonality && matchesLoveLanguage && matchesEngagement
   })
+
+  const handleDownloadReport = () => {
+    // Lógica para download do relatório
+    alert("Será implementado em breve")
+  }
+
   return (
     <>
       <div className={styles.headerRow}>
@@ -51,7 +57,12 @@ export default function UsersPage() {
           title="Gestão de Usuários"
           subtitle="Gerencie usuários da plataforma e seus dados"
         />
-        <button className={styles.exportButton}>Exportar Relatório</button>
+        <button 
+          className={styles.exportButton}
+          onClick={handleDownloadReport}
+        >
+          Exportar Relatório
+        </button>
       </div>
       <KPIGrid gridColumns={4}>
         <KPICard
