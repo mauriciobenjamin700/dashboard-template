@@ -1,3 +1,4 @@
+import { Activity, Brain, Heart, MessageSquare } from "lucide-react";
 import styles from "./styles.module.css"
 
 interface MoodDistribution {
@@ -33,11 +34,12 @@ export default function UserPreferencesPreview({userPreferences}: userPreference
 
     return (
     <section className={styles.statsGrid}>
-        <div className={styles.card}>
-          <div className={styles.cardHeader}>
-            <span className={styles.cardTitle}>Atividade de Conteúdo</span>
+        <div className="card">
+          <div className="cardHeader">
+            <MessageSquare className="cardIcon" />
+            <span className="cardTitle">Atividade de Conteúdo</span>
           </div>
-          <div className={styles.cardContent}>
+          <div className="cardContent">
             <div className={styles.statRow}>
               <span className={styles.statLabel}>Total de Dicas</span>
               <span className={styles.badge}>{data.totalTips.toLocaleString()}</span>
@@ -61,11 +63,12 @@ export default function UserPreferencesPreview({userPreferences}: userPreference
             </div> */}
           </div>
         </div>
-        <div className={styles.card}>
-          <div className={styles.cardHeader}>
-            <span className={styles.cardTitle}>Distribuição de Humor</span>
+        <div className="card">
+          <div className="cardHeader">
+            <Activity className="cardIcon" />
+            <span className="cardTitle">Distribuição de Humor</span>
           </div>
-          <div className={styles.cardContent}>
+          <div className="cardContent">
             {data.moodDistribution.map((mood) => (
               <div key={mood.mood} className={styles.moodRow}>
                 <div className={styles.statRow}>
@@ -79,11 +82,12 @@ export default function UserPreferencesPreview({userPreferences}: userPreference
             ))}
           </div>
         </div>
-        <div className={styles.card}>
-          <div className={styles.cardHeader}>
-            <span className={styles.cardTitle}>Linguagens do Amor Mais Populares</span>
+        <div className="card">
+          <div className="cardHeader">
+            <Heart className="cardIcon" />
+            <span className="cardTitle">Linguagens do Amor Mais Populares</span>
           </div>
-          <div className={styles.cardContent}>
+          <div className="cardContent">
             {data.loveLanguageDistribution.slice(0, 5).map((lang, index) => (
               <div key={lang.language} className={styles.statRow}>
                 <div>
@@ -96,11 +100,12 @@ export default function UserPreferencesPreview({userPreferences}: userPreference
             ))}
           </div>
         </div>
-        <div className={styles.card}>
-          <div className={styles.cardHeader}>
-            <span className={styles.cardTitle}>Diagnósticos Mais Comuns</span>
+        <div className="card">
+          <div className="cardHeader">
+            <Brain className="cardIcon" />
+            <span className="cardTitle">Diagnósticos Mais Comuns</span>
           </div>
-          <div className={styles.cardContent}>
+          <div className="cardContent">
             {data.diagnosesDistribution.slice(0, 5).map((diagnosis, index) => (
               <div key={diagnosis.diagnosis} className={styles.statRow}>
                 <div>

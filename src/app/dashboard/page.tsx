@@ -24,7 +24,7 @@ export default function DashboardPage() {
     tipsSentToday: data.tipsSentToday,
     moodDistribution: data.moodDistribution,
     loveLanguageDistribution: data.loveLanguageDistribution,
-    diagnosesDistribution: data.diagnosesDistribution
+    diagnosesDistribution: data.psychiatric_diagnosesDistribution
   }
 
   return (

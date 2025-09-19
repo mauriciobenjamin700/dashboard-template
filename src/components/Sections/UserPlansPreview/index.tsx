@@ -1,4 +1,5 @@
 import styles from "./styles.module.css"
+import { CreditCard } from "lucide-react";
 
 interface UserPlan {
     plan: string;
@@ -12,11 +13,12 @@ interface UserPlansPreviewProps {
 
 export default function UserPlansPreview(data: UserPlansPreviewProps) {
     return (
-      <section className={styles.card}>
-        <div className={styles.cardHeader}>
-          <span className={styles.cardTitle}>Usuários Ativos por Plano</span>
+      <section className="card">
+        <div className="cardHeader">
+          <CreditCard className="cardIcon"/>
+          <span className="cardTitle">Usuários Ativos por Plano</span>
         </div>
-        <div className={styles.cardContent}>
+        <div className="cardContent">
           <div className={styles.statsGrid3}>
             {data.usersByPlan.map((plan) => (
               <div key={plan.plan} className={styles.statCol}>

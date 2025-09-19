@@ -1,29 +1,27 @@
+"use client"
+import { useState } from "react";
 import * as Popover from "@radix-ui/react-popover";
 import styles from "./styles.module.css";
 import OptionsButton from "@/components/ui/OptionsButton";
+import { Eye, Key, Mail, User, UserCheck, UserRoundX, Users } from "lucide-react";
+import UserProfileModal from "@/components/Modal/UserProfileModal";
+import ConfirmModal from "@/components/Modal/ConfirmModal";
 
 interface UserTableProps {
-    filteredUsers: Array<{
-        id: number;
-        name: string;
-        email: string;
-        age: number;
-        is_active: boolean;
-        diagnoses: string[];
-        love_languages: string[];
-        engagement_score: number;
-        last_active: string;
-    }>;
+    filteredUsers: Array<User>;
 }
 
 export default function UserTable ({ filteredUsers }: UserTableProps) {
+
+    const [selectedUser, setSelectedUser] = useState<User | null>(null);
+    const [showProfileModal, setShowProfileModal] = useState(false);
+    const [confirmModalData, setConfirmModalData] = useState<{content: string; onConfirm: () => void;} | null>(null);
 
     const getStatusBadge = (isActive: boolean) => (
         <span className={isActive ? styles.badgeActive : styles.badgeInactive}>
             {isActive ? "Ativo" : "Inativo"}
         </span>
     );
-
     const getEngagementColor = (score: number) => {
         if (score >= 80) return styles.textSuccess;
         if (score >= 60) return styles.textWarning;
@@ -32,17 +30,29 @@ export default function UserTable ({ filteredUsers }: UserTableProps) {
 
     const handleShowProfile = (userId: number) => {
         // Lógica para mostrar o perfil do usuário
-        alert(`Mostrando perfil do usuário ${userId}`);
+        const user = filteredUsers.find(u => u.id === userId) || null;
+        setSelectedUser(user);
+        setShowProfileModal(true);
     }
 
     const handleActivateUser = (userId: number) => {
-        // Lógica para ativar o usuário
-        alert(`Usuário ${userId} ativado`);
+        setConfirmModalData({
+            content: "Você tem certeza que deseja ativar este usuário?",
+            onConfirm: () => {
+                // Lógica para ativar o usuário
+                alert(`Usuário ${userId} ativado`);
+            }
+        })
     }
 
     const handleDeActivateUser = (userId: number) => {
-        // Lógica para desativar o usuário
-        alert(`Usuário ${userId} desativado`);
+        setConfirmModalData({
+            content: "Você tem certeza que deseja desativar este usuário?",
+            onConfirm: () => {
+                // Lógica para desativar o usuário
+                alert(`Usuário ${userId} desativado`);
+            }
+        })
     }
 
     const handleResetPassword = (userId: number) => {
@@ -57,7 +67,25 @@ export default function UserTable ({ filteredUsers }: UserTableProps) {
 
     return (
         <section className={styles.tableCard}>
-            <div className={styles.tableHeader}>Usuários ({filteredUsers.length})</div>
+            <UserProfileModal
+                user={selectedUser}
+                open={showProfileModal}
+                onClose={() => setShowProfileModal(false)}
+            />
+            <ConfirmModal
+                title="Confirmar Ação"
+                content={confirmModalData ? confirmModalData.content : ""}
+                onConfirm={() => {
+                    confirmModalData?.onConfirm();
+                    setConfirmModalData(null);  
+                }}
+                onCancel={() => setConfirmModalData(null)}
+                open={!!confirmModalData}
+            />
+            <div className={styles.tableHeader}>
+                <Users className="cardIcon" />
+                Usuários ({filteredUsers.length})
+            </div>
             <table className={styles.table}>
             <thead>
                 <tr>
@@ -85,11 +113,11 @@ export default function UserTable ({ filteredUsers }: UserTableProps) {
                     </td>
                     <td>
                     <div className={styles.badgeList}>
-                        {user.diagnoses.slice(0, 2).map((diagnosis) => (
+                        {user.psychiatric_diagnoses.slice(0, 2).map((diagnosis) => (
                         <span key={diagnosis} className={styles.badgeOutline}>{diagnosis}</span>
                         ))}
-                        {user.diagnoses.length > 2 && (
-                        <span className={styles.badgeSecondary}>+{user.diagnoses.length - 2}</span>
+                        {user.psychiatric_diagnoses.length > 2 && (
+                        <span className={styles.badgeSecondary}>+{user.psychiatric_diagnoses.length - 2}</span>
                         )}
                     </div>
                     </td>
@@ -119,18 +147,21 @@ export default function UserTable ({ filteredUsers }: UserTableProps) {
                                 className={styles.popoverAction}
                                 onClick={() => handleShowProfile(user.id)}
                             >
+                                <Eye />
                                 Ver Perfil
                             </button>
                             <button 
                                 className={styles.popoverAction}
                                 onClick={() => handleSendMessage(user.id)}
                             >
+                                <Mail />
                                 Enviar Mensagem
                             </button>
                             <button 
                                 className={styles.popoverAction}
                                 onClick={() => handleResetPassword(user.id)}
                             >
+                                <Key />
                                 Redefinir Senha
                             </button>
                             <button
@@ -143,7 +174,16 @@ export default function UserTable ({ filteredUsers }: UserTableProps) {
                                 }}
                             >
                                 {
-                                    user.is_active ? "Desativar Conta" : "Ativar Conta"
+                                    user.is_active ?
+                                        <>
+                                            <UserRoundX color="#ef4444" />
+                                            <p>Desativar Conta</p>
+                                        </>
+                                    : 
+                                    <>
+                                        <UserCheck color="#22c55e" />
+                                        <p>Ativar Conta</p>
+                                    </>
                                 }
                             </button>
                         </Popover.Content>

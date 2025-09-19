@@ -1,4 +1,5 @@
 import styles from "./styles.module.css"
+import { Calendar } from "lucide-react";
 
 interface InteractionPattern {
     pattern: string;
@@ -13,11 +14,12 @@ interface UserInteractionPatternsProps {
 
 export default function UserInteractionPatterns( data: UserInteractionPatternsProps) {
     return (
-        <section className={styles.card}>
-            <div className={styles.cardHeader}>
-            <span className={styles.cardTitle}>Padrões de Interação dos Usuários</span>
+        <section className="card">
+            <div className="cardHeader">
+                <Calendar className="cardIcon" />
+                <span className="cardTitle">Padrões de Interação dos Usuários</span>
             </div>
-            <div className={styles.cardContent}>
+            <div className="cardContent">
             {data.interactionPatterns.map((pattern) => (
                 <div key={pattern.pattern} className={styles.statCol}>
                 <div className={styles.statRow}>

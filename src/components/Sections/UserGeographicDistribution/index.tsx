@@ -1,6 +1,7 @@
 "use client"
 import styles from "./styles.module.css"
 import { useState } from "react"
+import { Globe } from "lucide-react";
 
 interface LocationData {
   name: string;
@@ -24,11 +25,12 @@ export default function UserGeographicDistribution( data: UserGeographicDistribu
   }
 
   return (
-    <section className={styles.card}>
-        <div className={styles.cardHeader}>
-          <span className={styles.cardTitle}>Distribuição Geográfica dos Usuários Ativos</span>
+    <section className="card">
+        <div className="cardHeader">
+          <Globe className="cardIcon"/>
+          <span className="cardTitle">Distribuição Geográfica dos Usuários Ativos</span>
         </div>
-        <div className={styles.cardContent}>
+        <div className="cardContent">
           <div className={styles.tabsList}>
             <button className={`${styles.tabButton} ${activeTab === 'countries' ? styles.active : ''}`} onClick={() => handleSelectTab('countries')}>Países</button>
             <button className={`${styles.tabButton} ${activeTab === 'states' ? styles.active : ''}`} onClick={() => handleSelectTab('states')}>Estados</button>

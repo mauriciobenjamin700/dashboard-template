@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import { ChartNoAxesCombined, UserCheck } from "lucide-react";
 import styles from "./styles.module.css"
 import { mockUsers } from "@/lib/mockData"
 import SectionHeader from "@/components/SectionHeader"
@@ -31,7 +32,7 @@ export default function UsersPage() {
                       (ageFilter === "36-45" && user.age >= 36 && user.age <= 45) ||
                       (ageFilter === "46+" && user.age >= 46)
     const matchesDiagnosis = diagnosisFilter === "all" ||
-                           user.diagnoses.some(d => d.toLowerCase().includes(diagnosisFilter.toLowerCase()))
+                           user.psychiatric_diagnoses.some(d => d.toLowerCase().includes(diagnosisFilter.toLowerCase()))
     const matchesPersonality = personalityFilter === "all" ||
                               user.personalities.some(p => p.toLowerCase().includes(personalityFilter.toLowerCase()))
     const matchesLoveLanguage = loveLanguageFilter === "all" ||
@@ -43,6 +44,12 @@ export default function UsersPage() {
     return matchesSearch && matchesStatus && matchesAge && matchesDiagnosis && 
            matchesPersonality && matchesLoveLanguage && matchesEngagement
   })
+
+  const handleDownloadReport = () => {
+    // Lógica para download do relatório
+    alert("Será implementado em breve")
+  }
+
   return (
     <>
       <div className={styles.headerRow}>
@@ -50,28 +57,37 @@ export default function UsersPage() {
           title="Gestão de Usuários"
           subtitle="Gerencie usuários da plataforma e seus dados"
         />
-        <button className={styles.exportButton}>Exportar Relatório</button>
+        <button 
+          className={styles.exportButton}
+          onClick={handleDownloadReport}
+        >
+          Exportar Relatório
+        </button>
       </div>
       <KPIGrid gridColumns={4}>
         <KPICard
           title="Total de Usuários"
           value={mockUsers.length.toString()}
           description="+2 novos hoje"
+          icon={<UserCheck />}
         />
         <KPICard
           title="Usuários Ativos"
           value={mockUsers.filter(u => u.is_active).length.toString()}
           description={`${((mockUsers.filter(u => u.is_active).length / mockUsers.length) * 100).toFixed(1)}% do total`}
+          icon={<UserCheck color="#22c55e" />}
         />
         <KPICard
           title="Engajamento Médio"
           value={`${(mockUsers.reduce((acc, u) => acc + u.engagement_score, 0) / mockUsers.length).toFixed(1)}%`}
           description="Últimos 30 dias"
+          icon={<ChartNoAxesCombined className="cardIcon" />}
         />
         <KPICard 
           title="Novos Cadastros"
           value="12"
           description="+25% vs mês anterior"
+          icon={<UserCheck color="#552ae2ff" />}
         />
       </KPIGrid>
       <UserAdvancedFilters 
