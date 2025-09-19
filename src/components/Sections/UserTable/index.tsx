@@ -15,7 +15,6 @@ export default function UserTable ({ filteredUsers }: UserTableProps) {
 
     const [selectedUser, setSelectedUser] = useState<User | null>(null);
     const [showProfileModal, setShowProfileModal] = useState(false);
-    const [showConfirmModal, setShowConfirmModal ] = useState(false);
     const [confirmModalData, setConfirmModalData] = useState<{content: string; onConfirm: () => void;} | null>(null);
 
     const getStatusBadge = (isActive: boolean) => (

@@ -30,4 +30,4 @@ declare global {
     }
 }
 
-export default {};
+export {};

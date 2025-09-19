@@ -89,7 +89,7 @@ export default function UserProfileModal({ user, open, onClose }: UserProfileMod
             <div className={styles.cardTitle}>Histórico de Humor</div>
             <div className={styles.cardContent}>
               {user.mood_history && user.mood_history.length > 0 ? (
-                user.mood_history.map((mood: any, idx: number) => (
+                user.mood_history.map((mood, idx: number) => (
                   <div key={idx} className={styles.moodRow}>
                     <span style={{ fontSize: "1.5rem", marginRight: 8 }}>{mood.emoji}</span>
                     <span style={{ fontWeight: 500 }}>{mood.label}</span>
@@ -105,7 +105,7 @@ export default function UserProfileModal({ user, open, onClose }: UserProfileMod
             <div className={styles.cardTitle}>Dicas Recebidas</div>
             <div className={styles.cardContent}>
               {user.tips_received_list && user.tips_received_list.length > 0 ? (
-                user.tips_received_list.map((tip: any, idx: number) => (
+                user.tips_received_list.map((tip, idx: number) => (
                   <div key={idx} className={styles.tipRow}>
                     <div>
                       <div style={{ fontWeight: 600 }}>{tip.tip}</div>
@@ -122,7 +122,7 @@ export default function UserProfileModal({ user, open, onClose }: UserProfileMod
             <div className={styles.cardTitle}>Feedbacks Dados</div>
             <div className={styles.cardContent}>
               {user.feedbacks_list && user.feedbacks_list.length > 0 ? (
-                user.feedbacks_list.map((fb: any, idx: number) => (
+                user.feedbacks_list.map((fb, idx: number) => (
                   <div key={idx} className={styles.tipRow}>
                     <div style={{ fontWeight: 600 }}>{fb.feedback}</div>
                     <div style={{ color: "#6b7280" }}>{new Date(fb.date).toLocaleDateString('pt-BR')}</div>
