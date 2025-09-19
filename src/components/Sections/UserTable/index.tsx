@@ -1,7 +1,7 @@
 import * as Popover from "@radix-ui/react-popover";
 import styles from "./styles.module.css";
 import OptionsButton from "@/components/ui/OptionsButton";
-import { Users } from "lucide-react";
+import { Eye, Key, Mail, UserCheck, UserRoundX, Users } from "lucide-react";
 
 interface UserTableProps {
     filteredUsers: Array<{
@@ -123,18 +123,21 @@ export default function UserTable ({ filteredUsers }: UserTableProps) {
                                 className={styles.popoverAction}
                                 onClick={() => handleShowProfile(user.id)}
                             >
+                                <Eye />
                                 Ver Perfil
                             </button>
                             <button 
                                 className={styles.popoverAction}
                                 onClick={() => handleSendMessage(user.id)}
                             >
+                                <Mail />
                                 Enviar Mensagem
                             </button>
                             <button 
                                 className={styles.popoverAction}
                                 onClick={() => handleResetPassword(user.id)}
                             >
+                                <Key />
                                 Redefinir Senha
                             </button>
                             <button
@@ -147,7 +150,16 @@ export default function UserTable ({ filteredUsers }: UserTableProps) {
                                 }}
                             >
                                 {
-                                    user.is_active ? "Desativar Conta" : "Ativar Conta"
+                                    user.is_active ?
+                                        <>
+                                            <UserRoundX color="#ef4444" />
+                                            <p>Desativar Conta</p>
+                                        </>
+                                    : 
+                                    <>
+                                        <UserCheck color="#22c55e" />
+                                        <p>Ativar Conta</p>
+                                    </>
                                 }
                             </button>
                         </Popover.Content>
